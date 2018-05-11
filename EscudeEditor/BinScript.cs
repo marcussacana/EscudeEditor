@@ -27,8 +27,8 @@ namespace EscudeEditor {
         }
 
         public string Encoder(string String, bool Encode) {
-            string Source = Encode ? fullgana : halfgana;
-            string Target = Encode ? halfgana : fullgana;
+            string Source = Encode ? fullgana + halfgana : halfgana + fullgana;
+            string Target = Encode ? halfgana + fullgana : fullgana + halfgana;
 
             string Result = string.Empty;
             for (int i = 0; i < String.Length; i++) {
@@ -40,7 +40,7 @@ namespace EscudeEditor {
                 Result += c;
             }
 
-            return String;
+            return Result;
         }
 
         public byte[] Export(string[] Strings) {
