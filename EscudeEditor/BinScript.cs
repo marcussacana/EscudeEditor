@@ -44,11 +44,12 @@ namespace EscudeEditor {
         }
 
         public byte[] Export(string[] Strings) {
-            Bin.Strings = (from x in Strings select Encoder(x, true)).ToArray();
+            string[] Strs = (from x in Strings select Encoder(x, true)).ToArray();
+            Bin.Strings = Strs;
             uint Len = 0;
-            for (int i = 0; i < Strings.Length; i++) {
+            for (int i = 0; i < Strs.Length; i++) {
                 Bin.Offsets[i] = Len;
-                Len += (uint)Encoding.GetByteCount(Strings[i]) + 1;//+1 = \x0
+                Len += (uint)Encoding.GetByteCount(Strs[i]) + 1;//+1 = \x0
             }
             return Tools.BuildStruct(ref Bin, Encoding: Encoding);
         }

@@ -1,7 +1,5 @@
 # EscudeEditor
-A Tool to edit the Escude Bin packgets
-
-Actuallly you can only read the Bin script (Temporarily)
+A Tool to edit the Escude Bin scripts and packgets
 
 
 ## Note for devlopers:
